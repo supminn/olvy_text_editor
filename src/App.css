@@ -37,3 +37,7 @@ img {
   max-height: 15rem;
   width: 100%;
 }
+
+li{
+  margin: 0.5rem 0;
+}
