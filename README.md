@@ -22,6 +22,6 @@ Richie editor is a rich text editor which supports various text formats such as 
 
 ## Live link and demo
 
-[Deployed link](https://richie-text.vercel.app/)
+[Deployed link](https://richie-editor.vercel.app/)
 
 https://user-images.githubusercontent.com/30731236/127778919-613ceb1e-cbb5-437b-a446-efcfb96b812e.mp4
