@@ -1,18 +1,46 @@
-import React from "react";
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Link from "@tiptap/extension-link";
-import Image from "@tiptap/extension-image";
-import Underline from "@tiptap/extension-underline";
+import { useRef, useState } from "react";
 import { Button } from "react-bootstrap";
+import { findMeme } from "../services";
+import { LinkModal } from "./LinkModal";
 
-const MenuBar = ({ editor }) => {
+export const EditorOptions = ({ editor }) => {
+  const linkType = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const linkHandler = (type) => {
+    setShowModal(true);
+    linkType.current = type;
+  };
+
+  const memeHandler = async () => {
+    let htmlContent = editor.getHTML();
+    const regExp = /\{\{(.+?)_meme\}\}/;
+    if (regExp.test(htmlContent)) {
+      const searchWord = htmlContent.match(regExp)[1];
+      const imageURL = await findMeme(searchWord);
+      if (imageURL !== "no results found") {
+        const newContent = `<img src="${imageURL}" alt="${searchWord}"/>`;
+        htmlContent = htmlContent.replace(regExp, "");
+        htmlContent += newContent;
+        editor.commands.setContent(htmlContent);
+      }
+    }
+  };
+
   if (!editor) {
     return null;
   }
 
   return (
     <div>
+      {showModal && (
+        <LinkModal
+          show={showModal}
+          setShow={setShowModal}
+          editor={editor}
+          linkType={linkType.current}
+        />
+      )}
       <Button
         variant="outline-secondary"
         onClick={() => editor.chain().focus().undo().run()}
@@ -58,50 +86,21 @@ const MenuBar = ({ editor }) => {
 
       <Button
         variant="outline-dark"
-        onClick={() =>
-          editor
-            .chain()
-            .focus()
-            .setImage({
-              src: "https://pbs.twimg.com/profile_images/1211920692368695299/J6eYihlX_400x400.jpg",
-            })
-            .run()
-        }
+        onClick={() => linkHandler("image")}
         className="m-2"
       >
         <i className="fas fa-file-image"></i>
       </Button>
       <Button
         variant="outline-dark"
-        onClick={() =>
-          editor
-            .chain()
-            .focus()
-            .setLink({ href: "https://www.google.com" })
-            .run()
-        }
+        onClick={() => linkHandler("link")}
         className="m-2"
       >
         <i className="fas fa-link"></i>
       </Button>
-      <Button variant="outline-dark" className="m-2">
+      <Button variant="outline-dark" className="m-2" onClick={memeHandler}>
         <i className="fas fa-magic"></i>
       </Button>
     </div>
   );
 };
-
-function Tiptap() {
-  const editor = useEditor({
-    extensions: [StarterKit, Link, Image, Underline],
-  });
-
-  return (
-    <div>
-      <MenuBar editor={editor} />
-      <EditorContent className="testing" editor={editor} />
-    </div>
-  );
-}
-
-export default Tiptap;

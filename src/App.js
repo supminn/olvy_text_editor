@@ -1,10 +1,10 @@
 import "./App.css";
-import Tiptap from "./Tiptap";
+import { Editor } from "./components/Editor";
 
 function App() {
   return (
     <div>
-      <Tiptap />
+      <Editor />
     </div>
   );
 }
