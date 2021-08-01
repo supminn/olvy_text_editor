@@ -1,16 +1,19 @@
 import { useState } from "react";
 import "./App.css";
-import { Editor, Instructions, NavBar } from "./components";
+import { Editor, Footer, Instructions, NavBar } from "./components";
 
 function App() {
   const [showInstructions, setShowInstructions] = useState(false);
   return (
     <div className="App">
       <NavBar setShow={setShowInstructions} />
-      <Editor />
-      {showInstructions && (
-        <Instructions setShow={setShowInstructions} show={showInstructions} />
-      )}
+      <div className="main-container">
+        <Editor />
+        {showInstructions && (
+          <Instructions setShow={setShowInstructions} show={showInstructions} />
+        )}
+      </div>
+      <Footer />
     </div>
   );
 }
