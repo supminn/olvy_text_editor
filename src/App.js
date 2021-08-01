@@ -1,10 +1,16 @@
+import { useState } from "react";
 import "./App.css";
-import { Editor } from "./components/Editor";
+import { Editor, Instructions, NavBar } from "./components";
 
 function App() {
+  const [showInstructions, setShowInstructions] = useState(false);
   return (
-    <div>
+    <div className="App">
+      <NavBar setShow={setShowInstructions} />
       <Editor />
+      {showInstructions && (
+        <Instructions setShow={setShowInstructions} show={showInstructions} />
+      )}
     </div>
   );
 }

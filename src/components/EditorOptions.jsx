@@ -32,7 +32,7 @@ export const EditorOptions = ({ editor }) => {
   }
 
   return (
-    <div>
+    <div className="d-flex justify-content-center flex-wrap p-2">
       {showModal && (
         <LinkModal
           show={showModal}
