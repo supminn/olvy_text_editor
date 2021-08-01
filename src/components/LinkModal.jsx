@@ -49,8 +49,8 @@ export const LinkModal = ({ show, setShow, editor, linkType }) => {
             value={link.url}
             onChange={(e) => setLink(e.target.value)}
           />
-          {error && <small className="text-danger d-block">{error}</small>}
         </div>
+        {error && <small className="text-danger input-group">{error}</small>}
       </Modal.Body>
 
       <Modal.Footer>
