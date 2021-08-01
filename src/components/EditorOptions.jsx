@@ -77,14 +77,6 @@ export const EditorOptions = ({ editor }) => {
         <i className="fas fa-underline"></i>
       </Button>
       <Button
-        variant={editor.isActive("strike") ? "dark" : "outline-dark"}
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        className="m-2"
-      >
-        <i className="fas fa-strikethrough"></i>
-      </Button>
-
-      <Button
         variant="outline-dark"
         onClick={() => linkHandler("image")}
         className="m-2"
