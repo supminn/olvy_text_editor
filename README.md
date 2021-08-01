@@ -4,10 +4,10 @@ Richie editor is a rich text editor which supports various text formats such as 
 
 ## Techonology Stack
 
-React functional components with hooks
-Styling using bootstrap along with react-bootstrap
-[Giphy](https://giphy.com/) API integration for meme generation
-[TipTap](https://www.tiptap.dev/) editor framework
+- React functional components with hooks
+- Styling using bootstrap along with react-bootstrap
+- [Giphy](https://giphy.com/) API integration for meme generation
+- [TipTap](https://www.tiptap.dev/) editor framework
 
 ## Functionalities
 
@@ -23,3 +23,5 @@ Styling using bootstrap along with react-bootstrap
 ## Live link and demo
 
 [Deployed link](https://richie-text.vercel.app/)
+
+https://user-images.githubusercontent.com/30731236/127778919-613ceb1e-cbb5-437b-a446-efcfb96b812e.mp4
