@@ -5,6 +5,7 @@ export const Instructions = ({ show, setShow }) => {
   const handleClose = () => {
     setShow(false);
   };
+
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
