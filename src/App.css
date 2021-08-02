@@ -16,7 +16,7 @@
 }
 
 .main-container {
-  min-height: 80vh;
+  min-height: calc(94vh - 5rem);
 }
 
 .editor-container {
@@ -36,8 +36,13 @@
 img {
   max-height: 15rem;
   width: auto;
+  max-width: 100%;
 }
 
 li {
   margin: 0.5rem 0;
+}
+
+.footer{
+  height: 5rem;
 }
