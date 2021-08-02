@@ -43,8 +43,7 @@ export const Instructions = ({ show, setShow }) => {
               <Button variant="outline-dark">
                 <i className="fas fa-file-image"></i>
               </Button>{" "}
-              button to insert the image URL. Simple drag and drop to re-arrange
-              the order.
+              button to insert the image URL.
             </li>
             <li>
               Add external links within the editor. Hightlight any given text
